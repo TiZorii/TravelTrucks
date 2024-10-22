@@ -1,0 +1,33 @@
+.background {
+    min-height: 696px;
+    background-size: cover;
+    background-position: center;
+    padding-top: 260px;
+    padding-left: 64px;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--inputs-color);
+}
+
+.text {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--inputs-color);
+    padding-bottom: 40px;
+}
+
+.link {
+    width: 173px;
+    height: 56px;
+}
+
+.button {
+    width: 166px;
+    height: 56px;
+    border-radius: 200px;
+    background-color: var(--button-color);
+    color: var(--main-background-color);
+}
