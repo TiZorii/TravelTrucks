@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
 
 const Home = lazy(() => import('../pages/Home/Home'));
-const Catalog = lazy(() => import('../pages/Catalog'));
+const Catalog = lazy(() => import('../pages/Catalog/Catalog'));
 
 export default function App() {
   return (

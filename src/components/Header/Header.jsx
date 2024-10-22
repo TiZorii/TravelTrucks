@@ -9,11 +9,8 @@ const navLink =({isActive}) => {
 export default function Header() {
     return (
         <div className={css.header}>
-            <img
-            className={css.logo}
-            src="/src/images/Logo.svg"
-            alt="logo" />
             <nav className={css.nav}>
+                <NavLink to='/' className={navLink}><img className={css.logo} src="/src/images/Logo.svg" alt="logo" /></NavLink>
                 <NavLink to='/' className={navLink}>Home</NavLink>
                 <NavLink to='/catalog' className={navLink}>Catalog</NavLink>
             </nav>

@@ -1,36 +1,48 @@
+
+export default function Trucks() {
+  
+  return (
+    <div>
+      <h1>Trucks Catalog</h1>
+    </div>
+  );
+}
+
+
 // import { useEffect, useRef, useState } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
-// import { animateScroll } from 'react-scroll';
-// import { getAdverts } from '../../redux/adverts/operations';
-// import {
-//   selectAdverts,
-//   selectError,
-//   selectIsLoading,
-// } from '../../redux/adverts/selectors';
-// import { filterUse } from '../../redux/filter/filterSlice';
-// import { selectFilter } from '../../redux/filter/selectors';
-// import { getFilteredAdverts } from '../../helpers/getFilteredAdverts';
-// import SearchForm from 'components/SearchForm/SearchForm';
-// import CampersList from 'components/CampersList/CampersList';
-// import Loader from 'components/Loader/Loader';
-// import {
-//   AdvertsItem,
-//   AdvertsList,
-//   Button,
-//   Catalog,
-//   Container,
-//   NoResults,
-// } from './Campers.styled';
+// // import { animateScroll } from 'react-scroll';
+// // import { getAdverts } from '../../redux/adverts/operations';
+// // import {
+// //   selectAdverts,
+// //   selectError,
+// //   selectIsLoading,
+// // } from '../../redux/adverts/selectors';
+// // import { filterUse } from '../../redux/filter/filterSlice';
+// // import { selectFilter } from '../../redux/filter/selectors';
+// // import { getFilteredAdverts } from '../../helpers/getFilteredAdverts';
+// // import SearchForm from 'components/SearchForm/SearchForm';
+// import TrucksList from 'components/TrucksList/TrucksList';
+// // import Loader from 'components/Loader/Loader';
+// // import {
+// //   AdvertsItem,
+// //   AdvertsList,
+// //   Button,
+// //   Catalog,
+// //   Container,
+// //   NoResults,
+// // } from './Campers.styled';
 
-// const Campers = () => {
+
+// export default function Campers () {
 //   const dispatch = useDispatch();
 //   const [currentPage, setCurrentPage] = useState(1);
 //   const [isLoadMore, setIsLoadMore] = useState(true);
 
-//   const filters = useSelector(selectFilter);
-//   const isLoading = useSelector(selectIsLoading);
-//   const error = useSelector(selectError);
-//   const allAdverts = useSelector(selectAdverts);
+// //   const filters = useSelector(selectFilter);
+// //   const isLoading = useSelector(selectIsLoading);
+// //   const error = useSelector(selectError);
+// //   const allAdverts = useSelector(selectAdverts);
 
 //   const advertsItemRef = useRef(null);
 
@@ -38,7 +50,7 @@
 //     dispatch(getAdverts({ page: currentPage, limit: 13 }));
 //   }, [dispatch, currentPage]);
 
-//   const filteredAdverts = getFilteredAdverts(allAdverts, filters);
+// //   const filteredAdverts = getFilteredAdverts(allAdverts, filters);
 
 //   const loadMore = () => {
 //     setCurrentPage(prev => prev + 1);
@@ -48,7 +60,7 @@
 //       smooth: true,
 //     };
 
-//     animateScroll.scrollTo(advertsItemRef.current.offsetTop, options);
+//     // animateScroll.scrollTo(advertsItemRef.current.offsetTop, options);
 //   };
 
 //   useEffect(() => {
@@ -81,7 +93,7 @@
 //           {filteredAdverts.length > 0 ? (
 //             filteredAdverts.slice(0, currentPage * 4).map(advert => (
 //               <AdvertsItem key={advert._id} ref={advertsItemRef}>
-//                 <CampersList advert={advert} />
+//                 <TrucksList advert={advert} />
 //               </AdvertsItem>
 //             ))
 //           ) : (
@@ -97,4 +109,3 @@
 //   );
 // };
 
-// export default Campers;
