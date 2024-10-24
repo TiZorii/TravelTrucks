@@ -51,7 +51,7 @@ export default function Catalog () {
 
   return (
     <div className={css.catalogPage}>
-      <Toaster position="top-center" reverseOrder={false} />
+      <Toaster position="top-right" reverseOrder={false} />
 
       <div className={css.filterContainer}>
         <SearchForm
