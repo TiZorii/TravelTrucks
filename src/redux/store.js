@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
 import {
   persistStore,
   persistReducer,
@@ -8,23 +8,26 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import { advertsReducer } from './adverts/advertsSlice';
-import { filtersReducer } from './filter/filterSlice';
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import campersReducer from "./campers/slice";
 
-const advertsPersistConfig = {
-  key: 'favorites',
+const campersPersistConfig = {
+  key: "campers",
   storage,
-  whitelist: ['favorites'],
+  whitelist: ["campers", "filters"],
 };
+
+const persistedCampersReducer = persistReducer(
+  campersPersistConfig,
+  campersReducer
+);
 
 export const store = configureStore({
   reducer: {
-    adverts: persistReducer(advertsPersistConfig, advertsReducer),
-    filter: filtersReducer,
+    campers: persistedCampersReducer,
   },
-  middleware: getDefaultMiddleware =>
+  middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
@@ -33,3 +36,39 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+
+// import { configureStore } from '@reduxjs/toolkit';
+// import {
+//   persistStore,
+//   persistReducer,
+//   FLUSH,
+//   REHYDRATE,
+//   PAUSE,
+//   PERSIST,
+//   PURGE,
+//   REGISTER,
+// } from 'redux-persist';
+// import storage from 'redux-persist/lib/storage';
+// import { advertsReducer } from './adverts/Slice';
+// import { filtersReducer } from './filter/filterSlice';
+
+// const advertsPersistConfig = {
+//   key: 'favorites',
+//   storage,
+//   whitelist: ['favorites'],
+// };
+
+// export const store = configureStore({
+//   reducer: {
+//     adverts: persistReducer(advertsPersistConfig, advertsReducer),
+//     filter: filtersReducer,
+//   },
+//   middleware: getDefaultMiddleware =>
+//     getDefaultMiddleware({
+//       serializableCheck: {
+//         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+//       },
+//     }),
+// });
+
+// export const persistor = persistStore(store);
