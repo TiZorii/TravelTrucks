@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 :root {
-  --main-background-color: #FFFFFF;
+  --main-color: #101828;
+  --text-color: #475467;
+  --gray-color: #6C717B;
+  --button-color: #E44848;
+  --button-hover-color: #D84343;
+  --rating-color: #FFC531;
+  --gray-light-color: #DADDE1;
   --badges-color: #F2F4F7;
   --inputs-color: #F7F7F7;
-  --gray-light-color: #DADDE1;
-  --rating-color: #FFC531;
-  --button-hover-color: #D84343;
-  --button-color: #E44848;
-  --gray-color: #6C717B;
-  --text-color: #475467;
-  --main-color: #101828;
+  --main-background-color: #FFFFFF;
 }
 
 body {

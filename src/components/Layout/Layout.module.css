@@ -1,6 +1,42 @@
-/* .container {
-    padding: 0 15px;
+.container {
+    padding: 0;
     margin: 0 auto;
     width: 100%;
-    max-width: 1342px;
-} */
+    max-width: 1440px;
+}
+
+.header {
+    align-items: center;
+    display: flex;
+    height: 72px;
+    justify-content: center;
+    position: relative;
+    padding: 0 64px;
+    border-bottom: 1px solid var(--badges-color);
+    background-color: var(--inputs-color);
+}
+
+.logo {
+    left: 64px;
+    margin-right: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.link {
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.active {
+    color: var(--button-hover-color);
+}
+
+.nav {
+    display: flex;
+    gap: 32px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 16px;
+}

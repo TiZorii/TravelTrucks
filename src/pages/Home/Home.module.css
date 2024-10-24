@@ -23,11 +23,3 @@
     width: 173px;
     height: 56px;
 }
-
-.button {
-    width: 166px;
-    height: 56px;
-    border-radius: 200px;
-    background-color: var(--button-color);
-    color: var(--main-background-color);
-}

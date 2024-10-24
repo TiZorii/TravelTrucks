@@ -1,12 +1,25 @@
+import { NavLink } from 'react-router-dom';
+import css from './Layout.module.css';
+import clsx from 'clsx';
 import Loader from '../Loader/Loader';
-import Header from '../Header/Header';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
+
+const navLink =({isActive}) => {
+    return clsx(css.link, isActive && css.active)
+}
+
 export default function Layout() {
   return (
-    <div className='container'>
-      <Header/>
+    <div className={css.container}>
+      <div className={css.header}>
+        <nav className={css.nav}>
+                <NavLink to='/' className={navLink}><img className={css.logo} src="/src/images/Logo.svg" alt="logo" /></NavLink>
+                <NavLink to='/' className={navLink}>Home</NavLink>
+                <NavLink to='/catalog' className={navLink}>Catalog</NavLink>
+        </nav>
+        </div>
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>

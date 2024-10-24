@@ -7,12 +7,12 @@ export default function Loader () {
       <Oval
       height={100}
       width={100}
-      color="#E44848"
+      color="var(--button-color)"
       wrapperStyle={{}}
       wrapperClass=""
       visible={true}
       ariaLabel="oval-loading"
-      secondaryColor="#E44848"
+      secondaryColor="var(--button-color)"
     />
     </div>
   );
