@@ -10,23 +10,21 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { campersReducer }  from './campersSlice';
-import { filtersReducer } from './filtersSlice';
+import { advertsReducer } from './adverts/advertsSlice';
+import { filtersReducer } from './filter/filterSlice';
 
-const persistConfig = {
-  key: 'campers',
+const advertsPersistConfig = {
+  key: 'favorites',
   storage,
   whitelist: ['favorites'],
 };
 
-const persistedCampersReducer = persistReducer(persistConfig, campersReducer);
-
 export const store = configureStore({
   reducer: {
-    campers: persistedCampersReducer,
-    filters: filtersReducer,
+    adverts: persistReducer(advertsPersistConfig, advertsReducer),
+    filter: filtersReducer,
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],

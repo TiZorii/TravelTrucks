@@ -1,29 +1,12 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorites } from '../../redux/adverts/selectors';
 import { addFavorite, removeFavorite } from '../../redux/adverts/advertsSlice';
 import sprite from '../../images/sprite.svg';
-import Modal from 'components/Modal/Modal';
-import CamperDetails from 'components/CamperDetails/CamperDetails';
-import {
-  AdvertsWrap,
-  Button,
-  CategoriesItem,
-  CategoriesList,
-  Description,
-  HeartButton,
-  Img,
-  Price,
-  PriceWrap,
-  RatingWrap,
-  Title,
-  TitleWrap,
-} from './CampersList.styled';
+import styles from './CampersList.module.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function CampersList ({ advert }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const CampersList = ({ advert }) => {
   const dispatch = useDispatch();
 
   const favorites = useSelector(selectFavorites);
@@ -41,24 +24,15 @@ export default function CampersList ({ advert }) {
     dispatch(removeFavorite(advert._id));
   };
 
-  const openModal = () => {
-    setIsModalOpen(true);
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
   return (
     <>
-      <Img src={advert.gallery[0]} alt={advert.name} />
-      <AdvertsWrap>
-        <TitleWrap>
-          <Title>{advert.name}</Title>
-          <PriceWrap>
-            <Price>€{advert.price.toFixed(2)}</Price>
-            <HeartButton onClick={toggleFavorite}>
+      <img src={advert.gallery[0]} alt={advert.name} className={styles.img} />
+      <div className={styles.advertsWrap}>
+        <div className={styles.titleWrap}>
+          <p className={styles.title}>{advert.name}</p>
+          <div className={styles.priceWrap}>
+            <p className={styles.price}>€{advert.price.toFixed(2)}</p>
+            <button onClick={toggleFavorite} className={styles.heartButton}>
               {favoriteItem === -1 ? (
                 <svg width="24" height="24" fill="none" stroke="currentColor">
                   <use href={`${sprite}#icon-heart`} />
@@ -68,11 +42,11 @@ export default function CampersList ({ advert }) {
                   <use href={`${sprite}#icon-heart`} />
                 </svg>
               )}
-            </HeartButton>
-          </PriceWrap>
-        </TitleWrap>
+            </button>
+          </div>
+        </div>
 
-        <RatingWrap>
+        <div className={styles.ratingWrap}>
           <p style={{ textDecorationLine: 'underline' }}>
             <svg width="16" height="16" fill="#FFC531">
               <use href={`${sprite}#icon-star`} />
@@ -86,67 +60,60 @@ export default function CampersList ({ advert }) {
             </svg>
             {advert.location.split(',').reverse().join(', ')}
           </p>
-        </RatingWrap>
+        </div>
 
-        <Description>{advert.description}</Description>
+        <p className={styles.description}>{advert.description}</p>
 
-        <CategoriesList>
-          <CategoriesItem>
+        <ul className={styles.categoriesList}>
+          <li className={styles.categoriesItem}>
             <svg width="20" height="20">
               <use href={`${sprite}#icon-adults`} />
             </svg>
             {advert.adults} adults
-          </CategoriesItem>
+          </li>
 
-          <CategoriesItem style={{ textTransform: 'capitalize' }}>
+          <li className={styles.categoriesItem} style={{ textTransform: 'capitalize' }}>
             <svg width="20" height="20" fill="none" stroke="currentColor">
               <use href={`${sprite}#icon-automatic`} />
             </svg>
             {advert.transmission}
-          </CategoriesItem>
+          </li>
 
-          <CategoriesItem style={{ textTransform: 'capitalize' }}>
+          <li className={styles.categoriesItem} style={{ textTransform: 'capitalize' }}>
             <svg width="20" height="20">
               <use href={`${sprite}#icon-petrol`} />
             </svg>
             {advert.engine}
-          </CategoriesItem>
+          </li>
 
           {advert.details.kitchen >= 1 && (
-            <CategoriesItem>
+            <li className={styles.categoriesItem}>
               <svg width="20" height="20" fill="none" stroke="currentColor">
                 <use href={`${sprite}#icon-kitchen`} />
               </svg>
               Kitchen
-            </CategoriesItem>
+            </li>
           )}
 
-          <CategoriesItem>
+          <li className={styles.categoriesItem}>
             <svg width="20" height="20" fill="none" stroke="currentColor">
               <use href={`${sprite}#icon-beds`} />
             </svg>
             {advert.details.beds} beds
-          </CategoriesItem>
+          </li>
 
           {advert.details.airConditioner >= 1 && (
-            <CategoriesItem>
+            <li className={styles.categoriesItem}>
               <svg width="20" height="20" fill="none">
                 <use href={`${sprite}#icon-AC`} />
               </svg>
               AC
-            </CategoriesItem>
+            </li>
           )}
-        </CategoriesList>
-
-        <Button onClick={openModal}>Show more</Button>
-      </AdvertsWrap>
-
-      {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <CamperDetails advert={advert} />
-        </Modal>
-      )}
+        </ul>
+      </div>
     </>
   );
 };
 
+export default CampersList;
