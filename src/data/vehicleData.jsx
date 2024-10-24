@@ -1,12 +1,13 @@
 export const categories = [
   { name: "AC", label: "AC", icon: "icon-ac" },
   { name: "transmission", label: "Automatic", icon: "icon-diagram" },
-  { name: "kitchen", label: "Kitchen", icon: "icon-cup-hot" },
+  { name: "kitchen", label: "Kitchen", icon: "icon-kitchen" },
   { name: "TV", label: "TV", icon: "icon-tv" },
-  { name: "bathroom", label: "Bathroom", icon: "icon-shower" },
+  { name: "bathroom", label: "Bathroom", icon: "icon-bathroom" },
   { name: "engine", label: "Petrol", icon: "icon-petrol" },
   { name: "radio", label: "Radio", icon: "icon-radio" },
-  { name: "refrigerator", label: "Fridge", icon: "icon-fridge" },
+  { name: "refrigerator", label: "Refrigerator", icon: "icon-refrigerator" },
+  { name: "gas", label: "Gas", icon: "icon-gas" },
   { name: "water", label: "Water", icon: "icon-drop" },
 ];
 

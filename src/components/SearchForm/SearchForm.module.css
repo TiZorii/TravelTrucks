@@ -28,11 +28,6 @@
     border: none;
 }
 
-.inputField svg {
-    width: 20px;
-    height: 20px;
-}
-
 .inputField input {
     width: 100%;
     border: none;

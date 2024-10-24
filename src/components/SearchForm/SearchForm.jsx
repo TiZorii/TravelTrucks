@@ -67,7 +67,7 @@ export default function SearchForm ({
           <div className={css.inputContainer}>
             <label className={css.inputLabel}>Location</label>
             <div className={css.inputField}>
-              <svg><use href={`${sprite}#icon-map`} /></svg>
+              <svg width={20} height={20}><use href={`${sprite}#icon-map`} /></svg>
               <Field
                 name="location"
                 type="text"

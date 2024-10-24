@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-// import Icon from "../../../public/icons/Icon";
 import { categories } from "../../data/vehicleData";
 import Location from "../../components/Location/Location";
 import { toggleFavorite } from "../../redux/campers/slice";
 import { selectFavorites } from "../../redux/campers/selectors";
+import sprite from "../../images/sprite.svg"
 import css from "./CatalogCard.module.css";
 
 
@@ -49,21 +49,21 @@ export default function CatalogCard ({ camper }) {
             className={`${css.likeIcon} ${isFavorite ? css.active : ""}`}
             onClick={handleFavoriteClick}
           >
-            {/* <Icon name="icon-heart" width={24} height={24} /> */}
+            <svg width={26} height={24}><use href={`${sprite}#icon-heart`} /></svg>
           </div>
         </div>
 
         <div className={css.additionalInfo}>
           <div className={css.ratingLocation}>
             <div className={css.ratingWrapper}>
-              {/* <Icon name="icon-star" width={16} height={16} fill="#FFC531" /> */}
+                <svg width={16} height={16} fill="var(--rating-color)"><use href={`${sprite}#icon-star`} /></svg>
               <span>
                 {camper.rating} ({camper.reviews?.length || 0} Reviews)
               </span>
             </div>
 
             <div className={css.locationWrapper}>
-              {/* <Icon name="icon-map" width={16} height={16} /> */}
+                          <svg width={16} height={16}><use href={`${sprite}#icon-map`} /></svg>
               <Location location={camper.location} />
             </div>
           </div>
@@ -73,7 +73,7 @@ export default function CatalogCard ({ camper }) {
         <div className={css.featuresList}>
           {features.map((feature, index) => (
             <div key={index} className={css.featureItem}>
-              {/* <Icon name={feature.icon} width={20} height={20} /> */}
+                  <svg width={20} height={20}><use href={`${sprite}#${feature.icon}`} /></svg>
               {feature.label}
             </div>
           ))}
