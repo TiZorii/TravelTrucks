@@ -37,15 +37,3 @@ export const getCamperDetails = createAsyncThunk(
     }
   }
 );
-
-// export const getAdverts = createAsyncThunk(
-//   'adverts/getAdverts',
-//   async ({ page, limit }, thunkAPI) => {
-//     try {
-//       const { data } = await axios.get(`/adverts?page=${page}&limit=${limit}`);
-//       return data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );

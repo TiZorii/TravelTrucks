@@ -5,6 +5,7 @@
     padding: 24px;
     width: 100%;
     gap: 24px;
+
 }
 
 .imgWrapper {
@@ -26,8 +27,10 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    max-width: 524px;
     gap: 24px;
     flex-wrap: nowrap;
+
 }
 
 .cardTitle {
@@ -93,7 +96,6 @@
     width: 100%;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
-
     overflow: hidden;
     color: #475467;
     text-overflow: ellipsis;

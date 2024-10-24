@@ -14,6 +14,7 @@
     position: relative;
     min-height: 500px;
     width: 100%;
+    max-width: 888px;
 }
 
 .loadMoreBtn {
@@ -32,60 +33,3 @@
     letter-spacing: -0.005em;
     margin-top: 8px;
 }
-
-/* .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 64px;
-    margin-top: 30px;
-}
-
-.catalog {
-    width: 888px;
-    display: flex;
-    flex-direction: column;
-}
-
-.advertsList {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 50px;
-}
-
-.advertsItem {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    border-radius: 20px;
-    border: 1px solid rgba(16, 24, 40, 0.2);
-    padding: 24px;
-    width: 888px;
-}
-
-.button {
-    padding: 16px 32px;
-    border-radius: 200px;
-    border: 1px solid rgba(71, 84, 103, 0.2);
-    color: #101828;
-    font-family: Inter, sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    letter-spacing: -0.08px;
-    margin: 0 auto 24px;
-    transition: border 150ms linear;
-}
-
-.button:hover {
-    border: 1px solid var(--Button, #e44848);
-}
-
-.noResults {
-    text-align: center;
-    margin: 30px 0;
-    font-size: 24px;
-    color: #475467;
-} */

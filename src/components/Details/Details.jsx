@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import sprite from '../../images/Icons/icons.svg';
-import css from './Details.module.css'; // Importing the CSS module
+import css from './Details.module.css';
 import Features from 'components/Features/Features';
 import Reviews from 'components/Reviews/Reviews';
 import BookingForm from 'components/BookingForm/BookingForm';
