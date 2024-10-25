@@ -60,7 +60,7 @@
 }
 
 .likeIcon.active {
-    color: var(--button-color);
+    fill: var(--button-color);
 }
 
 .additionalInfo {

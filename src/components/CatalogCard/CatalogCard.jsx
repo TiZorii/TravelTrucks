@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { categories } from "../../data/vehicleData";
 import Location from "../../components/Location/Location";
-import { toggleFavorite } from "../../redux/campers/slice";
+import { toggleFavorite} from "../../redux/campers/slice";
 import { selectFavorites } from "../../redux/campers/selectors";
 import sprite from "../../images/sprite.svg"
 import css from "./CatalogCard.module.css";
@@ -12,7 +12,7 @@ export default function CatalogCard ({ camper }) {
     const dispatch = useDispatch();
     const favorites = useSelector(selectFavorites);
     const isFavorite = favorites.includes(camper.id);
-
+    
     const defaultFeaturesOrder = ["transmission", "engine", "kitchen", "AC"];
 
     const features = defaultFeaturesOrder
@@ -54,9 +54,9 @@ export default function CatalogCard ({ camper }) {
           </p>
           <div
             className={`${css.likeIcon} ${isFavorite ? css.active : ""}`}
-            onClick={handleFavoriteClick}
           >
-            <svg width={26} height={24}><use href={`${sprite}#icon-heart`} /></svg>
+            <svg 
+            onClick={handleFavoriteClick} width={26} height={24}><use href={`${sprite}#icon-heart`} /></svg>
           </div>
         </div>
 
