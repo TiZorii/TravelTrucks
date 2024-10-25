@@ -9,28 +9,28 @@ import css from "./CatalogCard.module.css";
 
 
 export default function CatalogCard ({ camper }) {
-  const dispatch = useDispatch();
-  const favorites = useSelector(selectFavorites);
-  const isFavorite = favorites.includes(camper.id);
+    const dispatch = useDispatch();
+    const favorites = useSelector(selectFavorites);
+    const isFavorite = favorites.includes(camper.id);
 
-  const defaultFeaturesOrder = ["transmission", "engine", "kitchen", "AC"];
+    const defaultFeaturesOrder = ["transmission", "engine", "kitchen", "AC"];
 
-  const features = defaultFeaturesOrder
-    .map((featureName) =>
-      categories.find((category) => category.name === featureName)
-    )
-    .filter((category) => category && camper[category.name])
-    .map((category) => ({
-      icon: category.icon,
-      label: category.label,
-    }));
+    const features = defaultFeaturesOrder
+        .map((featureName) =>
+            categories.find((category) => category.name === featureName)
+        )
+        .filter((category) => category && camper[category.name])
+        .map((category) => ({
+            icon: category.icon,
+            label: category.label,
+        }));
 
-//   const features = categories
-//     .filter((category) => camper[category.name])
-//     .map((category) => ({
-//       icon: category.icon,
-//       label: category.label,
-//     }));
+    // const features = categories
+    //     .filter((category) => camper[category.name])
+    //     .map((category) => ({
+    //         icon: category.icon,
+    //         label: category.label,
+    //     }));
 
   const handleFavoriteClick = () => {
     dispatch(toggleFavorite(camper.id));
@@ -70,7 +70,7 @@ export default function CatalogCard ({ camper }) {
             </div>
 
             <div className={css.locationWrapper}>
-                          <svg width={16} height={16}><use href={`${sprite}#icon-map`} /></svg>
+                <svg width={16} height={16}><use href={`${sprite}#icon-map`} /></svg>
               <Location location={camper.location} />
             </div>
           </div>

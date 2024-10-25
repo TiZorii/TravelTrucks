@@ -1,6 +1,6 @@
 import Button from '../../components/Button/Button';
 import traveltruck from '../../images/traveltruck.jpg';
-import css from './Home.module.css';
+import css from './HomePage.module.css';
 
 export default function Home () {
   return (
