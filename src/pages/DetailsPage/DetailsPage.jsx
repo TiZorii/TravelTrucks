@@ -1,12 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCamperDetails } from "../../redux/campers/operations";
+import { getCamperDetails } from "../../redux/campers/operations";
 import { selectCamperDetails, selectCamperDetailsStatus} from "../../redux/campers/selectors";
-import Gallery from "../../components/Gallery/Gallery";
-import Reviews from "../../components/Reviews/Reviews";
-import BookingForm from "../../components/BookingForm/BookingForm";
-import Features from "../../components/Features/Features";
 import LocationFormatter from "../../components/Location/Location";
 import sprite from "../../images/sprite.svg";
 import css from "./DetailsPage.module.css";
@@ -17,10 +13,9 @@ export default function DetailsPage () {
   const dispatch = useDispatch();
   const camper = useSelector(selectCamperDetails);
   const status = useSelector(selectCamperDetailsStatus);
-  const [activeTab, setActiveTab] = useState("features");
 
   useEffect(() => {
-    dispatch(fetchCamperDetails(id));
+    dispatch(getCamperDetails(id));
   }, [dispatch, id]);
 
   if (status === "loading") {
@@ -48,44 +43,6 @@ export default function DetailsPage () {
         <p className={css.camperPrice}>€{camper.price}</p>
       </div>
 
-      <div className={css.camperInfo}>
-        <div className={css.galleryWrapper}>
-          {camper.gallery && <Gallery images={camper.gallery} />}
-        </div>
-        <p className={css.desc}>{camper.description}</p>
-      </div>
-
-      <div className={css.tabsWrapper}>
-        <button
-          className={activeTab === "features" ? css.activeTab : ""}
-          onClick={() => setActiveTab("features")}
-        >
-          Features
-        </button>
-        <button
-          className={activeTab === "reviews" ? css.activeTab : ""}
-          onClick={() => setActiveTab("reviews")}
-        >
-          Reviews
-        </button>
-      </div>
-
-      <div className={css.detailsContent}>
-        <div
-          className={
-            activeTab === "features"
-              ? css.tabContentWithBackground
-              : css.tabContentWithoutBackground
-          }
-        >
-          {activeTab === "features" && <Features camper={camper} />}
-          {activeTab === "reviews" && <Reviews reviews={camper.reviews} />}
-        </div>
-
-        <div className={css.bookingFormWrapper}>
-          <BookingForm camperId={id} />
-        </div>
-      </div>
     </div>
   );
 };
