@@ -9,90 +9,90 @@ import 'react-toastify/dist/ReactToastify.css';
 import css from './BookingForm.module.css';
 
 export default function BookingForm () {
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    reset,
-    formState: { errors },
-    control,
-  } = useForm();
+    const {
+        register,
+        handleSubmit,
+        setValue,
+        reset,
+        formState: { errors },
+        control,
+    } = useForm();
 
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-  const onSubmit = data => {
-    const formData = {
-      name: data.name,
-      email: data.email,
-      date: data.date.toISOString(),
-      comment: data.comment,
+    const onSubmit = data => {
+        const formData = {
+            name: data.name,
+            email: data.email,
+            date: data.date.toISOString(),
+            comment: data.comment,
+        };
+
+        dispatch(bookCamper(formData));
+
+        toast.success('Successfully sent!', {
+            theme: 'colored',
+            autoClose: 2500,
+        });
+
+        console.log(data);
+        reset();
     };
 
-    dispatch(bookCamper(formData));
+    return (
+        <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
+            <p className={css.title}>Book your campervan now</p>
+            <p className={css.text}>Stay connected! We are always ready to help you.</p>
 
-    toast.success('Successfully sent!', {
-      theme: 'colored',
-      autoClose: 2500,
-    });
-
-    console.log(data);
-    reset();
-  };
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
-      <p className={css.title}>Book your campervan now</p>
-      <p className={css.text}>Stay connected! We are always ready to help you.</p>
-
-      <input
-        type="text"
-        placeholder="Name"
-        {...register('name', { required: 'Name is required' })}
-        className={css.input}
-      />
-      {errors.name && <p className={css.error}>{errors.name.message}</p>}
-
-      <input
-        type="email"
-        placeholder="Email"
-        {...register('email', { required: 'Email is required' })}
-        className={css.input}
-      />
-      {errors.email && <p className={css.error}>{errors.email.message}</p>}
-
-      <Controller
-        control={control}
-        name="date"
-        rules={{ required: 'Date is required' }}
-        render={({ field }) => (
-          <div className={css.datePickerWrapper}>
-            <DatePicker
-              {...field}
-              minDate={new Date()}
-              calendarStartDay={1}
-              dateFormat="d MMM yyyy"
-              selected={field.value}
-              onChange={val => setValue('date', val)}
-              placeholderText="Booking date"
-              autoComplete="off"
-              className={css.datePicker}
+            <input
+                type="text"
+                placeholder="Name"
+                {...register('name', { required: 'Name is required' })}
+                className={css.input}
             />
-            <svg width="18" height="18" fill="none" stroke="currentColor">
-              <use href={`${sprite}#icon-calendar`} />
-            </svg>
-          </div>
-        )}
-      />
-      {errors.date && <p className={css.error}>{errors.date.message}</p>}
+            {errors.name && <p className={css.error}>{errors.name.message}</p>}
 
-      <textarea
-        placeholder="Comment"
-        {...register('comment')}
-        rows="4"
-        className={css.textarea}
-      />
+            <input
+                type="email"
+                placeholder="Email"
+                {...register('email', { required: 'Email is required' })}
+                className={css.input}
+            />
+            {errors.email && <p className={css.error}>{errors.email.message}</p>}
 
-      <button type="submit" className={css.button}>Send</button>
-    </form>
-  );
+            <Controller
+                control={control}
+                name="date"
+                rules={{ required: 'Date is required' }}
+                render={({ field }) => (
+                    <div className={css.datePickerWrapper}>
+                        <DatePicker
+                            {...field}
+                            minDate={new Date()}
+                            calendarStartDay={1}
+                            dateFormat="d MMM yyyy"
+                            selected={field.value}
+                            onChange={val => setValue('date', val)}
+                            placeholderText="Booking date"
+                            autoComplete="off"
+                            className={css.datePicker}
+                        />
+                        <svg width="18" height="18" fill="none" stroke="currentColor">
+                            <use href={`${sprite}#icon-calendar`} />
+                        </svg>
+                    </div>
+                )}
+            />
+            {errors.date && <p className={css.error}>{errors.date.message}</p>}
+
+            <textarea
+                placeholder="Comment"
+                {...register('comment')}
+                rows="4"
+                className={css.textarea}
+            />
+
+            <button type="submit" className={css.button}>Send</button>
+        </form>
+    );
 };

@@ -116,23 +116,3 @@
     font-weight: 500;
     line-height: 24px;
 }
-
-.showMoreBtn {
-    display: flex;
-    width: 166px;
-    padding: 16px 40px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 200px;
-    background-color: var(--button-color);
-
-    color: var(--main-background-color);
-    font-weight: 500;
-    line-height: 1.5;
-    letter-spacing: -0.005em;
-}
-
-.showMoreBtn:hover {
-    background-color: var(--button-hover-color);
-}
