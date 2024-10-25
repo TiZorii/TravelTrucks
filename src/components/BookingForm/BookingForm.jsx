@@ -1,103 +1,98 @@
-// import { useDispatch } from 'react-redux';
-// import { Controller, useForm } from 'react-hook-form';
-// import 'react-datepicker/dist/react-datepicker.css';
-// import { bookCamper } from '../../redux/adverts/advertsSlice';
-// import sprite from '../../images/sprite.svg';
-// import {
-//   Button,
-//   DatePickerWrapper,
-//   Error,
-//   Form,
-//   Input,
-//   StyledDatePicker,
-//   Text,
-//   Textarea,
-//   Title,
-// } from './BookingForm.styled';
-// import { toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import './styles.css';
+import { useDispatch } from 'react-redux';
+import { Controller, useForm } from 'react-hook-form';
+import 'react-datepicker/dist/react-datepicker.css';
+import { bookCamper } from '../../redux/campers/slice';
+import sprite from '../../images/sprite.svg';
+import DatePicker from 'react-datepicker';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import css from './BookingForm.module.css';
 
+export default function BookingForm () {
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    reset,
+    formState: { errors },
+    control,
+  } = useForm();
 
+  const dispatch = useDispatch();
 
-// export default function BookingForm () {
-//   const {
-//     register,
-//     handleSubmit,
-//     setValue,
-//     reset,
-//     formState: { errors },
-//     control,
-//   } = useForm();
+  const onSubmit = data => {
+    const formData = {
+      name: data.name,
+      email: data.email,
+      date: data.date.toISOString(),
+      comment: data.comment,
+    };
 
-//   const dispatch = useDispatch();
+    dispatch(bookCamper(formData));
 
-//   const onSubmit = data => {
-//     const formData = {
-//       name: data.name,
-//       email: data.email,
-//       date: data.date.toISOString(),
-//       comment: data.comment,
-//     };
+    toast.success('Successfully sent!', {
+      theme: 'colored',
+      autoClose: 2500,
+    });
 
-//     dispatch(bookCamper(formData));
+    console.log(data);
+    reset();
+  };
 
-//     toast.success('Successfully sent!', {
-//       theme: 'colored',
-//       autoClose: 2500,
-//     });
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
+      <p className={css.title}>Book your campervan now</p>
+      <p className={css.text}>Stay connected! We are always ready to help you.</p>
 
-//     console.log(data);
-//     reset();
-//   };
+      <input
+        type="text"
+        placeholder="Name"
+        {...register('name', { required: 'Name is required' })}
+        className={css.input}
+      />
+      {errors.name && <p className={css.error}>{errors.name.message}</p>}
 
-//   return (
-//     <Form onSubmit={handleSubmit(onSubmit)}>
-//       <Title>Book your campervan now</Title>
-//       <Text>Stay connected! We are always ready to help you.</Text>
+      <input
+        type="email"
+        placeholder="Email"
+        {...register('email', { required: 'Email is required' })}
+        className={css.input}
+      />
+      {errors.email && <p className={css.error}>{errors.email.message}</p>}
 
-//       <Input
-//         type="text"
-//         placeholder="Name"
-//         {...register('name', { required: 'Name is required' })}
-//       />
-//       {errors.name && <Error>{errors.name.message}</Error>}
+      <Controller
+        control={control}
+        name="date"
+        rules={{ required: 'Date is required' }}
+        render={({ field }) => (
+          <div className={css.datePickerWrapper}>
+            <DatePicker
+              {...field}
+              minDate={new Date()}
+              calendarStartDay={1}
+              dateFormat="d MMM yyyy"
+              selected={field.value}
+              onChange={val => setValue('date', val)}
+              placeholderText="Booking date"
+              autoComplete="off"
+              className={css.datePicker}
+            />
+            <svg width="18" height="18" fill="none" stroke="currentColor">
+              <use href={`${sprite}#icon-calendar`} />
+            </svg>
+          </div>
+        )}
+      />
+      {errors.date && <p className={css.error}>{errors.date.message}</p>}
 
-//       <Input
-//         type="email"
-//         placeholder="Email"
-//         {...register('email', { required: 'Email is required' })}
-//       />
-//       {errors.email && <Error>{errors.email.message}</Error>}
+      <textarea
+        placeholder="Comment"
+        {...register('comment')}
+        rows="4"
+        className={css.textarea}
+      />
 
-//       <Controller
-//         control={control}
-//         name="date"
-//         rules={{ required: 'Date is required' }}
-//         render={({ field }) => (
-//           <DatePickerWrapper>
-//             <StyledDatePicker
-//               {...field}
-//               minDate={new Date()}
-//               calendarStartDay={1}
-//               dateFormat="d MMM yyyy"
-//               selected={field.value}
-//               onChange={val => setValue('date', val)}
-//               placeholderText="Booking date"
-//               autoComplete="off"
-//             />
-//             <svg width="18" height="18" fill="none" stroke="currentColor">
-//               <use href={`${sprite}#icon-calendar`} />
-//             </svg>
-//           </DatePickerWrapper>
-//         )}
-//       />
-//       {errors.date && <Error>{errors.date.message}</Error>}
-
-//       <Textarea placeholder="Comment" {...register('comment')} rows="4" />
-
-//       <Button type="submit">Send</Button>
-//     </Form>
-//   );
-// };
-
+      <button type="submit" className={css.button}>Send</button>
+    </form>
+  );
+};

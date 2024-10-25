@@ -1,8 +1,7 @@
 .detailsPage {
     display: flex;
     flex-direction: column;
-    margin-top: 48px;
-    margin-bottom: 80px;
+    margin: 48px 64px 80px 64px;
 }
 
 .camperHeader {
@@ -52,6 +51,21 @@
 
 .galleryWrapper {
     margin-bottom: 28px;
+}
+
+.galleryContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    gap: 45px;
+}
+
+.galleryImage {
+    width: 292px;
+    height: 312px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
 .desc {

@@ -9,6 +9,8 @@ const initialState = {
   status: "idle",
   camperDetailsStatus: "idle",
   noResults: false,
+
+  bookings: [],
 };
 
 const campersSlice = createSlice({
@@ -29,6 +31,9 @@ const campersSlice = createSlice({
         state.favorites.push(camperId);
       }
       localStorage.setItem("favorites", JSON.stringify(state.favorites));
+    },
+    bookCamper(state, action) {
+      state.bookings.push(action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -63,5 +68,5 @@ const campersSlice = createSlice({
   },
 });
 
-export const { setFilters, toggleFavorite } = campersSlice.actions;
+export const { setFilters, toggleFavorite, bookCamper } = campersSlice.actions;
 export default campersSlice.reducer;

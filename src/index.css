@@ -85,3 +85,43 @@ textarea:focus {
 *::after {
   box-sizing: border-box;
 }
+
+.react-datepicker,
+.react-datepicker__navigation-icon::before {
+  border-color: var(--text-color) !important;
+}
+
+.react-datepicker {
+  border-radius: 12px !important;
+}
+
+.react-datepicker__header {
+  border-top-left-radius: 12px !important;
+  border-top-right-radius: 12px !important;
+}
+
+.react-datepicker-wrapper,
+.react-datepicker-wrapper div {
+  height: 100%;
+  width: 100%;
+}
+
+.react-datepicker__header {
+  background-color: var(--main-background-color) !important;
+  border-color: var(--text-color) !important;
+  border-bottom: 1px solid var(--text-color);
+}
+
+.react-datepicker-popper .react-datepicker__triangle {
+  fill: var(--main-background-color) !important;
+  stroke: var(--text-color) !important;
+  color: var(--main-background-color) !important;
+}
+
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__day--selected,
+.react-datepicker__day:hover {
+  background-color: var(--text-color) !important;
+  border-radius: 50% !important;
+  color: var(--inputs-color) !important;
+}
