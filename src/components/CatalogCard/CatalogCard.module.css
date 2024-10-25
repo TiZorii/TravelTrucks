@@ -1,6 +1,6 @@
 .vehicleCard {
     display: flex;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--gray-light-color);
     border-radius: 20px;
     padding: 24px;
     width: 100%;
@@ -27,7 +27,6 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 524px;
     gap: 24px;
     flex-wrap: nowrap;
 
@@ -61,7 +60,7 @@
 }
 
 .likeIcon.active {
-    color: var(--accent);
+    color: var(--button-color);
 }
 
 .additionalInfo {
@@ -92,13 +91,7 @@
 }
 
 .description {
-    display: -webkit-box;
-    width: 100%;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    overflow: hidden;
-    color: #475467;
-    text-overflow: ellipsis;
+    color: var(--text-color);
     line-height: 1.5;
 }
 
@@ -107,6 +100,7 @@
     flex-wrap: wrap;
     gap: 8px;
     width: 400px;
+
 }
 
 .featureItem {
@@ -115,12 +109,12 @@
     align-items: center;
     gap: 8px;
     border-radius: 100px;
-    background: #f2f4f7;
-    color: #101828;
+    background: var(--badges-color);
+    color: var(--main-color);
     text-align: center;
     font-size: 16px;
     font-weight: 500;
-    line-height: 20px;
+    line-height: 24px;
 }
 
 .showMoreBtn {
@@ -131,14 +125,14 @@
     align-items: center;
     gap: 10px;
     border-radius: 200px;
-    background-color: var(--accent);
+    background-color: var(--button-color);
 
-    color: #fff;
+    color: var(--main-background-color);
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: -0.005em;
 }
 
 .showMoreBtn:hover {
-    background-color: var(--accent-active);
+    background-color: var(--button-hover-color);
 }

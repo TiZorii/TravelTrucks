@@ -25,6 +25,13 @@ export default function CatalogCard ({ camper }) {
       label: category.label,
     }));
 
+//   const features = categories
+//     .filter((category) => camper[category.name])
+//     .map((category) => ({
+//       icon: category.icon,
+//       label: category.label,
+//     }));
+
   const handleFavoriteClick = () => {
     dispatch(toggleFavorite(camper.id));
   };
@@ -67,7 +74,9 @@ export default function CatalogCard ({ camper }) {
               <Location location={camper.location} />
             </div>
           </div>
-          <p className={css.description}>{camper.description}</p>
+          <p className={css.description}>{camper.description.length > 70
+            ? `${camper.description.substring(0,70)}...`
+            : camper.description}</p>
         </div>
 
         <div className={css.featuresList}>

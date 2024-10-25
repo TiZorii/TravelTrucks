@@ -10,17 +10,6 @@ const initialState = {
   camperDetailsStatus: "idle",
   noResults: false,
 };
-fetch('https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers')
-  .then(response => response.json())
-  .then(data => {
-    console.log('API Response:', data);  // Check the structure
-    const categories = data.categories;  // Adjust this line based on the actual structure
-    const vehicleTypes = data.vehicleTypes;  // Same adjustment here
-    
-    console.log('Categories:', categories);
-    console.log('Vehicle Types:', vehicleTypes);
-  })
-  .catch(error => console.error('Error fetching data:', error));
 
 const campersSlice = createSlice({
   name: "campers",

@@ -9,9 +9,8 @@ import {
 } from "../../redux/campers/selectors";
 import VehicleCard from "../../components/CatalogCard/CatalogCard";
 import SearchForm from "../../components/SearchForm/SearchForm";
-import css from "./Catalog.module.css";
+import css from "./CatalogPage.module.css";
 import toast, { Toaster } from "react-hot-toast";
-// import CatalogLoader from "../../components/CatalogLoader/CatalogLoader";
 
 export default function Catalog () {
   const dispatch = useDispatch();
@@ -63,8 +62,6 @@ export default function Catalog () {
       </div>
 
       <div className={css.catalogContainer}>
-        {/* {status === "loading" && <CatalogLoader />} */}
-
         {status === "succeeded" &&
           campers
             .slice(0, visibleCount)
