@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCamperDetails } from "../../redux/campers/operations";
 import { selectCamperDetails, selectCamperDetailsStatus} from "../../redux/campers/selectors";
-// import Reviews from "../../components/Reviews/Reviews";
+import Reviews from "../../components/Reviews/Reviews";
 import BookingForm from "../../components/BookingForm/BookingForm";
 import Features from "../../components/Features/Features";
 import Location from "../../components/Location/Location";
@@ -91,7 +91,7 @@ export default function DetailsPage () {
           }
         >
           {activeTab === "features" && <Features camper={camper} />}
-          {/* {activeTab === "reviews" && <Reviews reviews={camper.reviews} />} */}
+          {activeTab === "reviews" && <Reviews reviews={camper.reviews} />}
         </div>
 
         <div className={css.bookingFormWrapper}>

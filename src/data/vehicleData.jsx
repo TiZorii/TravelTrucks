@@ -8,7 +8,7 @@ export const categories = [
   { name: "radio", label: "Radio", icon: "icon-radio" },
   { name: "refrigerator", label: "Refrigerator", icon: "icon-refrigerator" },
   { name: "gas", label: "Gas", icon: "icon-gas" },
-  { name: "water", label: "Water", icon: "icon-drop" },
+  { name: "water", label: "Water", icon: "icon-water" },
 ];
 
 export const vehicleTypes = [
