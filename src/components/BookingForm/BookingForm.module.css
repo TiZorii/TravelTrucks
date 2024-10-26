@@ -1,9 +1,6 @@
 .form {
-    width: 448px;
+    width: 527px;
     height: 532px;
-    border-radius: 10px;
-    border: 1px solid rgba(16, 24, 40, 0.2);
-    padding: 24px;
     position: relative;
 }
 
@@ -22,6 +19,31 @@
     margin-bottom: 10px;
 }
 
+.input {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    border: none;
+    color: #101828;
+    font-weight: 400;
+    line-height: 20px;
+    font-size: 16px;
+    margin-top: 14px;
+    padding: 18px;
+    width: 100%;
+    max-width: 527px;
+}
+
+.input::placeholder {
+    color: rgba(16, 24, 40, 0.6);
+}
+
+.error {
+    font-size: 12px;
+    color: #e44848;
+    position: absolute;
+    left: 43px;
+}
+
 .datePickerWrapper {
     position: relative;
 }
@@ -36,7 +58,7 @@
     font-size: 16px;
     margin-top: 14px;
     padding: 18px;
-    width: 400px;
+    width: 527px;
     position: relative;
 }
 
@@ -44,31 +66,6 @@
     position: absolute;
     right: 28px;
     pointer-events: none;
-}
-
-.input {
-    background-color: #f7f7f7;
-    border-radius: 10px;
-    border: none;
-    color: #101828;
-    font-weight: 400;
-    line-height: 20px;
-    font-size: 16px;
-    margin-top: 14px;
-    padding: 18px;
-    width: 100%;
-    max-width: 400px;
-}
-
-.input::placeholder {
-    color: rgba(16, 24, 40, 0.6);
-}
-
-.error {
-    font-size: 12px;
-    color: #e44848;
-    position: absolute;
-    left: 43px;
 }
 
 .textarea {
@@ -82,11 +79,12 @@
     margin-top: 14px;
     padding: 18px;
     width: 100%;
-    max-width: 400px;
+    max-width: 527px;
     resize: none;
 }
 
 .button {
+    display: block;
     padding: 16px 60px;
     background-color: #e44848;
     border-radius: 200px;
@@ -94,7 +92,7 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
-    margin-top: 24px;
+    margin: 24px auto 0;
     border: none;
     cursor: pointer;
     transition: background-color 150ms linear;

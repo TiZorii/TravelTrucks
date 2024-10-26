@@ -124,19 +124,19 @@
     background-color: #e44848;
 }
 
-.tabContentWithBackground {
+.featuresContent {
     background-color: #f7f7f7;
     border-radius: 10px;
 }
 
-.tabContentWithoutBackground {
+.reviewsContent {
     background-color: transparent;
 }
 
 .bookingFormWrapper {
     border-radius: 10px;
     border: 1px solid #dadde1;
-    padding: 44px;
+    padding: 44px 57px;
 }
 
 .tabsnfeaturesWrapper {

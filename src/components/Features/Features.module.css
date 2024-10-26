@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 100px;
   width: 631px;
-  padding: 44px 70px;
+  padding: 44px 52px;
   border-radius: 10px;
   background-color: var(--inputs-color);
 }
@@ -18,8 +18,9 @@
   display: flex;
   align-items: center;
   padding: 12px 18px;
-  background-color: #f2f4f7;
-  border-radius: 50px;
+  background-color: var(--badges-color);
+  mix-blend-mode: multiply;
+  border-radius: 100px;
   gap: 8px;
 }
 
@@ -35,7 +36,7 @@
 
 .hr {
   height: 1px;
-  background-color: #dadde1;
+  background-color: var(--gray-light-color);
   margin: 24px 0;
   border: none;
 }
@@ -54,4 +55,25 @@
 .vehicleDetails ul li span {
   font-weight: 500;
   line-height: 1.5;
+}
+
+.component {
+  background-color: var(--inputs-color);
+  border-radius: 10px;
+  padding: 45px 50px;
+}
+
+.options {
+  margin-bottom: 100px;
+}
+
+.item {
+  display: flex;
+  font-weight: 500;
+  justify-content: space-between;
+  text-transform: capitalize;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 16px;
 }
