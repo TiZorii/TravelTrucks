@@ -1,10 +1,12 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Controller, useForm } from 'react-hook-form';
 import 'react-datepicker/dist/react-datepicker.css';
 import { bookCamper } from '../../redux/campers/slice';
 import sprite from '../../images/sprite.svg';
 import DatePicker from 'react-datepicker';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
+import toast, { Toaster } from "react-hot-toast";
 import 'react-toastify/dist/ReactToastify.css';
 import css from './BookingForm.module.css';
 
@@ -19,7 +21,6 @@ export default function BookingForm () {
     } = useForm();
 
     const dispatch = useDispatch();
-
     const onSubmit = data => {
         const formData = {
             name: data.name,
@@ -39,14 +40,17 @@ export default function BookingForm () {
         reset();
     };
 
+    const [isSelecting, setIsSelecting] = useState(false);
+
     return (
         <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
+            <Toaster position="top-right" reverseOrder={false} />
             <p className={css.title}>Book your campervan now</p>
             <p className={css.text}>Stay connected! We are always ready to help you.</p>
 
             <input
                 type="text"
-                placeholder="Name"
+                placeholder="Name*"
                 {...register('name', { required: 'Name is required' })}
                 className={css.input}
             />
@@ -54,7 +58,7 @@ export default function BookingForm () {
 
             <input
                 type="email"
-                placeholder="Email"
+                placeholder="Email*"
                 {...register('email', { required: 'Email is required' })}
                 className={css.input}
             />
@@ -73,7 +77,9 @@ export default function BookingForm () {
                             dateFormat="d MMM yyyy"
                             selected={field.value}
                             onChange={val => setValue('date', val)}
-                            placeholderText="Booking date"
+                            onCalendarOpen={() => setIsSelecting(true)}
+                            onCalendarClose={() => setIsSelecting(false)}
+                            placeholderText={isSelecting ? "Select a date between today" : "Booking date*"} 
                             autoComplete="off"
                             className={css.datePicker}
                         />

@@ -17,7 +17,14 @@ export default function Layout() {
         <nav className={css.nav}>
                 <NavLink to='/' className={navLink}><img className={css.logo} src="/src/images/Logo.svg" alt="logo" /></NavLink>
                 <NavLink to='/' className={navLink}>Home</NavLink>
-                <NavLink to='/catalog' className={navLink}>Catalog</NavLink>
+          <NavLink
+            to='/catalog'
+            className={({ isActive}) => {
+              return isActive && window.location.pathname === '/catalog' 
+                ? css.active 
+                : css.link;
+            }}
+          >Catalog</NavLink>
         </nav>
         </div>
       <Suspense fallback={<Loader />}>
