@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCampers } from "../../redux/campers/operations";
-import { setFilters } from "../../redux/campers/slice";
+import { setFilters } from "../../redux/campers/sslice";
 import { selectCampers, selectFilters, selectCampersStatus } from "../../redux/campers/selectors";
 import VehicleCard from "../../components/CatalogCard/CatalogCard";
 import SearchForm from "../../components/SearchForm/SearchForm";
