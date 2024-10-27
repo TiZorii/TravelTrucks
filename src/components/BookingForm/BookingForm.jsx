@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Controller, useForm } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
-import { bookCamper } from "../../redux/campers/sslice";
+import { bookCamper } from "../../redux/campers/slice";
 import DatePicker from "react-datepicker";
 import toast, { Toaster } from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";

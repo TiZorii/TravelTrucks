@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { categories } from "../../data/vehicleData";
 import Location from "../../components/Location/Location";
-import { toggleFavorite } from "../../redux/campers/sslice";
+import { toggleFavorite } from "../../redux/campers/slice";
 import { selectFavorites } from "../../redux/campers/selectors";
 import sprite from "/images/sprite.svg";
 import Button from "../Button/Button";

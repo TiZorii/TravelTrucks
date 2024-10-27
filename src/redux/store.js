@@ -10,7 +10,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import campersReducer from "./campers/sslice";
+import campersReducer from "./campers/slice";
 
 const campersPersistConfig = {
   key: "campers",
