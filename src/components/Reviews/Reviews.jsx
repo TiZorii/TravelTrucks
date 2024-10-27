@@ -1,4 +1,4 @@
-import sprite from "/images/sprite.svg"
+import sprite from "/images/sprite.svg";
 import css from "./Reviews.module.css";
 
 

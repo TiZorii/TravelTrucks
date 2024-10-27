@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Controller, useForm } from 'react-hook-form';
-import 'react-datepicker/dist/react-datepicker.css';
-import { bookCamper } from '../../redux/campers/slice';
-import DatePicker from 'react-datepicker';
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Controller, useForm } from "react-hook-form";
+import "react-datepicker/dist/react-datepicker.css";
+import { bookCamper } from "../../redux/campers/slice";
+import DatePicker from "react-datepicker";
 import toast, { Toaster } from "react-hot-toast";
-import 'react-toastify/dist/ReactToastify.css';
-import css from './BookingForm.module.css';
+import "react-toastify/dist/ReactToastify.css";
+import css from "./BookingForm.module.css";
 
 export default function BookingForm () {
     const {
@@ -16,7 +16,7 @@ export default function BookingForm () {
         reset,
         formState: { errors },
         control,
-    } = useForm({mode: 'onChange'});
+    } = useForm({mode: "onChange"});
 
     const dispatch = useDispatch();
     const onSubmit = data => {
@@ -29,8 +29,8 @@ export default function BookingForm () {
 
         dispatch(bookCamper(formData));
 
-        toast.success('Successfully sent!', {
-            theme: 'colored',
+        toast.success("Successfully sent!", {
+            theme: "colored",
             autoClose: 2500,
         });
 
@@ -49,7 +49,7 @@ export default function BookingForm () {
             <input
                 type="text"
                 placeholder="Name*"
-                {...register('name', { required: 'Name is required' })}
+                {...register("name", { required: "Name is required" })}
                 className={css.input}
             />
             {errors.name && <p className={css.error}>{errors.name.message}</p>}
@@ -57,11 +57,11 @@ export default function BookingForm () {
             <input
                 type="email"
                 placeholder="Email*"
-                {...register('email', {
-                    required: 'Email is required',
+                {...register("email", {
+                    required: "Email is required",
                     pattern: {
                         value: /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
-                        message: 'Invalid email format'
+                        message: "Invalid email format"
         }
     })}
    className={css.input}
@@ -71,7 +71,7 @@ export default function BookingForm () {
             <Controller
                 control={control}
                 name="date"
-                rules={{ required: 'Date is required' }}
+                rules={{ required: "Date is required" }}
                 render={({ field }) => (
                     <div className={css.datePickerWrapper}>
                         <DatePicker
@@ -97,7 +97,7 @@ export default function BookingForm () {
 
             <textarea
                 placeholder="Comment"
-                {...register('comment')}
+                {...register("comment")}
                 rows="4"
                 className={css.textarea}
             />

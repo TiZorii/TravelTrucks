@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCamperDetails } from "../../redux/campers/operations";
-import { selectCamperDetails, selectCamperDetailsStatus} from "../../redux/campers/selectors";
+import { selectCamperDetails, selectCamperDetailsStatus } from "../../redux/campers/selectors";
 import Reviews from "../../components/Reviews/Reviews";
 import BookingForm from "../../components/BookingForm/BookingForm";
 import Features from "../../components/Features/Features";
@@ -11,14 +11,8 @@ import sprite from "/images/sprite.svg";
 import css from "./DetailsPage.module.css";
 import Loader from "../../components/Loader/Loader";
 
-export default function DetailsPage () {
-  const { id } = useParams();
-  const dispatch = useDispatch();
-  const camper = useSelector(selectCamperDetails);
-  const status = useSelector(selectCamperDetailsStatus);
-  const [activeTab, setActiveTab] = useState("features");
-  const Gallery = ({ images }) => {
-   return (
+const Gallery = ({ images }) => {
+  return (
     <div className={css.galleryContainer}>
       {images.map((image, index) => (
         <img
@@ -29,11 +23,31 @@ export default function DetailsPage () {
         />
       ))}
     </div>
-   );
-  };
+  );
+};
+
+export default function DetailsPage() {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const camper = useSelector(selectCamperDetails);
+  const status = useSelector(selectCamperDetailsStatus);
+  const [activeTab, setActiveTab] = useState("features");
+
   useEffect(() => {
     dispatch(getCamperDetails(id));
+    const storedTab = localStorage.getItem("activeTab");
+    if (storedTab) {
+      setActiveTab(storedTab);
+    }
   }, [dispatch, id]);
+
+  useEffect(() => {
+    localStorage.setItem("activeTab", activeTab);
+  }, [activeTab]);
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
 
   if (status === "loading") {
     return <Loader />;
@@ -46,8 +60,10 @@ export default function DetailsPage () {
       <div className={css.camperHeader}>
         <h2 className={css.camperName}>{camper.name}</h2>
         <div className={css.ratingLocation}>
-          <div className={css.ratingWrapper} onClick={() => setActiveTab("reviews")}>
-            <svg width={16} height={16} fill="var(--rating-color)" ><use href={`${sprite}#icon-star`} /></svg>
+          <div className={css.ratingWrapper} onClick={() => handleTabClick("reviews")}>
+            <svg width={16} height={16} fill="var(--rating-color)">
+              <use href={`${sprite}#icon-star`} />
+            </svg>
             <span>
               {camper.rating} ({camper.reviews?.length || 0} Reviews)
             </span>
@@ -57,7 +73,7 @@ export default function DetailsPage () {
             <Location location={camper.location} />
           </div>
         </div>
-        <p className={css.camperPrice}>€{camper.price}</p>
+        <p className={css.camperPrice}>€{Number(camper.price).toFixed(2)}</p>
       </div>
 
       <div className={css.camperInfo}>
@@ -70,13 +86,13 @@ export default function DetailsPage () {
       <div className={css.tabsWrapper}>
         <button
           className={activeTab === "features" ? css.activeTab : ""}
-          onClick={() => setActiveTab("features")}
+          onClick={() => handleTabClick("features")}
         >
           Features
         </button>
         <button
           className={activeTab === "reviews" ? css.activeTab : ""}
-          onClick={() => setActiveTab("reviews")}
+          onClick={() => handleTabClick("reviews")}
         >
           Reviews
         </button>
@@ -95,4 +111,3 @@ export default function DetailsPage () {
     </div>
   );
 };
-

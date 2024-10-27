@@ -2,11 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCampers } from "../../redux/campers/operations";
 import { setFilters } from "../../redux/campers/slice";
-import {
-  selectCampers,
-  selectFilters,
-  selectCampersStatus,
-} from "../../redux/campers/selectors";
+import { selectCampers, selectFilters, selectCampersStatus } from "../../redux/campers/selectors";
 import VehicleCard from "../../components/CatalogCard/CatalogCard";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import css from "./CatalogPage.module.css";
@@ -39,7 +35,7 @@ export default function Catalog () {
     setVisibleCount(4);
     dispatch(getCampers(filters));
   }, [dispatch, filters]);
-
+  
   const handleFilterChange = (newFilters) => {
     dispatch(setFilters(newFilters));
   };

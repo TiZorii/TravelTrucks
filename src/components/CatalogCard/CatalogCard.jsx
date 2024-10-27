@@ -20,7 +20,7 @@ export default function CatalogCard({ camper }) {
             label: category.label,
         }))
         .slice(0, 4);
-
+    
     const handleFavoriteClick = () => {
         dispatch(toggleFavorite(camper.id));
     };
@@ -56,7 +56,7 @@ export default function CatalogCard({ camper }) {
 
                 <div className={css.additionalInfo}>
                     <div className={css.ratingLocation}>
-                        <div className={css.ratingWrapper}>
+                        <div className={css.ratingWrapper} >
                             <svg width={16} height={16} fill="var(--rating-color)">
                                 <use href={`${sprite}#icon-star`} />
                             </svg>

@@ -1,10 +1,10 @@
-import { lazy } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import Layout from './Layout/Layout';
+import { lazy } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Layout from "./Layout/Layout";
 
-const Home = lazy(() => import('../pages/HomePage/HomePage'));
-const Catalog = lazy(() => import('../pages/CatalogPage/CatalogPage'));
-const Details = lazy(() => import('../pages/DetailsPage/DetailsPage'));
+const Home = lazy(() => import("../pages/HomePage/HomePage"));
+const Catalog = lazy(() => import("../pages/CatalogPage/CatalogPage"));
+const Details = lazy(() => import("../pages/DetailsPage/DetailsPage"));
 
 export default function App() {
   return (
