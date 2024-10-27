@@ -1,9 +1,8 @@
 import css from "./SearchForm.module.css";
-// import Icon from "../../../public/icons/Icon";
 import { useState, useCallback } from "react";
 import { categories, vehicleTypes } from "../../data/vehicleData";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import sprite from "../../images/sprite.svg"
+import sprite from "/images/sprite.svg"
 
 export default function SearchForm ({
   filters,

@@ -1,7 +1,8 @@
-import sprite from "../../images/sprite.svg"
+import sprite from "/images/sprite.svg"
 import css from "./Reviews.module.css";
 
-const Reviews = ({ reviews }) => {
+
+export default function Reviews ({ reviews }) {
   const getInitial = (name) => {
     return name.charAt(0).toUpperCase();
   };
@@ -49,5 +50,3 @@ const Reviews = ({ reviews }) => {
     </div>
   );
 };
-
-export default Reviews;

@@ -3,9 +3,8 @@ import { useDispatch } from 'react-redux';
 import { Controller, useForm } from 'react-hook-form';
 import 'react-datepicker/dist/react-datepicker.css';
 import { bookCamper } from '../../redux/campers/slice';
-import sprite from '../../images/sprite.svg';
+import sprite from '/images/sprite.svg';
 import DatePicker from 'react-datepicker';
-// import { toast } from 'react-toastify';
 import toast, { Toaster } from "react-hot-toast";
 import 'react-toastify/dist/ReactToastify.css';
 import css from './BookingForm.module.css';
@@ -18,7 +17,7 @@ export default function BookingForm () {
         reset,
         formState: { errors },
         control,
-    } = useForm();
+    } = useForm({mode: 'onChange'});
 
     const dispatch = useDispatch();
     const onSubmit = data => {
@@ -59,8 +58,14 @@ export default function BookingForm () {
             <input
                 type="email"
                 placeholder="Email*"
-                {...register('email', { required: 'Email is required' })}
-                className={css.input}
+                {...register('email', {
+                    required: 'Email is required',
+                    pattern: {
+                        value: /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
+                        message: 'Invalid email format'
+        }
+    })}
+   className={css.input}
             />
             {errors.email && <p className={css.error}>{errors.email.message}</p>}
 
@@ -76,7 +81,10 @@ export default function BookingForm () {
                             calendarStartDay={1}
                             dateFormat="d MMM yyyy"
                             selected={field.value}
-                            onChange={val => setValue('date', val)}
+                            onChange={val => {
+                                field.onChange(val);
+                                setValue('date', val);
+                            }}
                             onCalendarOpen={() => setIsSelecting(true)}
                             onCalendarClose={() => setIsSelecting(false)}
                             placeholderText={isSelecting ? "Select a date between today" : "Booking date*"} 

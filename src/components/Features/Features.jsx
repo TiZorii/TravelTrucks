@@ -1,5 +1,5 @@
 import { categories } from "../../data/vehicleData";
-import sprite from "../../images/sprite.svg";
+import sprite from "/images/sprite.svg";
 import css from "./Features.module.css";
 
 export default function Features({ camper }) {

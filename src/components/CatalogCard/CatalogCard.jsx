@@ -4,7 +4,7 @@ import { categories } from "../../data/vehicleData";
 import Location from "../../components/Location/Location";
 import { toggleFavorite } from "../../redux/campers/slice";
 import { selectFavorites } from "../../redux/campers/selectors";
-import sprite from "../../images/sprite.svg";
+import sprite from "/images/sprite.svg";
 import Button from "../Button/Button";
 import css from "./CatalogCard.module.css";
 

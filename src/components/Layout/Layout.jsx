@@ -15,7 +15,7 @@ export default function Layout() {
     <div className={css.container}>
       <div className={css.header}>
         <nav className={css.nav}>
-                <NavLink to='/' className={navLink}><img className={css.logo} src="/src/images/Logo.svg" alt="logo" /></NavLink>
+                <NavLink to='/' className={navLink}><img className={css.logo} src="/images/Logo.svg" alt="logo" /></NavLink>
                 <NavLink to='/' className={navLink}>Home</NavLink>
           <NavLink
             to='/catalog'

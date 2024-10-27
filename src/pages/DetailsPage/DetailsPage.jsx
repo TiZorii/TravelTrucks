@@ -7,7 +7,7 @@ import Reviews from "../../components/Reviews/Reviews";
 import BookingForm from "../../components/BookingForm/BookingForm";
 import Features from "../../components/Features/Features";
 import Location from "../../components/Location/Location";
-import sprite from "../../images/sprite.svg";
+import sprite from "/images/sprite.svg";
 import css from "./DetailsPage.module.css";
 import Loader from "../../components/Loader/Loader";
 
