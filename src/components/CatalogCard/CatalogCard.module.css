@@ -83,6 +83,10 @@
     text-decoration: underline;
 }
 
+.ratingWrapper:hover {
+    text-decoration: none;
+}
+
 .ratingWrapper,
 .locationWrapper {
     display: flex;

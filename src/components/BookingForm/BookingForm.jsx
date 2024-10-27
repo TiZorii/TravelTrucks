@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { Controller, useForm } from 'react-hook-form';
 import 'react-datepicker/dist/react-datepicker.css';
 import { bookCamper } from '../../redux/campers/slice';
-import sprite from '/images/sprite.svg';
 import DatePicker from 'react-datepicker';
 import toast, { Toaster } from "react-hot-toast";
 import 'react-toastify/dist/ReactToastify.css';
@@ -91,9 +90,6 @@ export default function BookingForm () {
                             autoComplete="off"
                             className={css.datePicker}
                         />
-                        <svg width="18" height="18" fill="none" stroke="currentColor">
-                            <use href={`${sprite}#icon-calendar`} />
-                        </svg>
                     </div>
                 )}
             />

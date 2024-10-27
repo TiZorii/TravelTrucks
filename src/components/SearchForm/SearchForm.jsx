@@ -82,7 +82,7 @@ export default function SearchForm ({
           </div>
 
           <div className={css.categoryWrapper}>
-            <label className={css.inputFil}>Filters</label>
+            <label className={css.inputLabel}>Filters</label>
             <h3 className={css.sectionTitle}>Vehicle equipment</h3>
             <hr className={css.hr} />
 

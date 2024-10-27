@@ -28,7 +28,7 @@
     border: none;
 }
 
-.inputField input {
+.input {
     width: 100%;
     border: none;
     background: none;
@@ -37,11 +37,17 @@
     padding-left: 8px;
 }
 
+.errorMessage {
+    color: var(--button-color);
+    font-size: 14px;
+    margin-top: 4px;
+}
+
 .categoryWrapper {
     margin-bottom: 32px;
 }
 
-.inputFil {
+.inputLabel {
     color: var(--text-color);
     line-height: 1.5;
 }
@@ -90,6 +96,11 @@
     border-color: var(--button-color);
 }
 
+.icon {
+    width: 32px;
+    height: 32px;
+}
+
 .searchBtn {
     display: flex;
     width: 166px;
@@ -110,15 +121,4 @@
 
 .searchBtn:hover {
     background-color: var(--button-hover-color);
-}
-
-.errorMessage {
-    color: red;
-    font-size: 14px;
-    margin-top: 4px;
-}
-
-.icon {
-    width: 32px;
-    height: 32px;
 }

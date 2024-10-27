@@ -34,7 +34,7 @@ export default function Reviews ({ reviews }) {
   return (
     <div className={css.reviewsContainer}>
       {reviews.map((review, index) => (
-        <div key={index} className={css.reviewItem}>
+        <div key={index}>
           <div className={css.reviewHeader}>
             <div className={css.avatar}>{getInitial(review.reviewer_name)}</div>
             <div className={css.reviewerInfo}>

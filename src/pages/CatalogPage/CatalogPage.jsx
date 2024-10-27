@@ -52,7 +52,7 @@ export default function Catalog () {
     <div className={css.catalogPage}>
       <Toaster position="top-right" reverseOrder={false} />
 
-      <div className={css.filterContainer}>
+      <div>
         <SearchForm
           filters={filters}
           setFilters={handleFilterChange}

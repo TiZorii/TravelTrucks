@@ -1,11 +1,11 @@
 .form {
     width: 527px;
-    height: 532px;
+    height: auto;
     position: relative;
 }
 
 .title {
-    color: #101828;
+    color: var(--main-color);
     font-size: 20px;
     font-weight: 600;
     line-height: 24px;
@@ -13,19 +13,18 @@
 }
 
 .text {
-    color: #475467;
+    color: var(--text-color);
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 10px;
 }
 
 .input {
-    background-color: #f7f7f7;
+    background-color: var(--inputs-color);
     border-radius: 10px;
     border: none;
-    color: #101828;
     font-weight: 400;
-    line-height: 20px;
+    line-height: 1.5;
     font-size: 16px;
     margin-top: 14px;
     padding: 18px;
@@ -34,12 +33,12 @@
 }
 
 .input::placeholder {
-    color: rgba(16, 24, 40, 0.6);
+    color: var(--gray-color);
 }
 
 .error {
     font-size: 12px;
-    color: #e44848;
+    color: var(--button-color);
     position: absolute;
     left: 43px;
 }
@@ -49,12 +48,11 @@
 }
 
 .datePicker {
-    background-color: #f7f7f7;
+    background-color: var(--inputs-color);
     border-radius: 10px;
     border: none;
-    color: #101828;
     font-weight: 400;
-    line-height: 20px;
+    line-height: 1.5;
     font-size: 16px;
     margin-top: 14px;
     padding: 18px;
@@ -62,19 +60,16 @@
     position: relative;
 }
 
-.datePickerWrapper svg {
-    position: absolute;
-    right: 28px;
-    pointer-events: none;
+.datePicker::placeholder {
+    color: var(--gray-color);
 }
 
 .textarea {
-    background-color: #f7f7f7;
+    background-color: var(--inputs-color);
     border-radius: 10px;
     border: none;
-    color: #101828;
     font-weight: 400;
-    line-height: 20px;
+    line-height: 1.5;
     font-size: 16px;
     margin-top: 14px;
     padding: 18px;
@@ -83,15 +78,19 @@
     resize: none;
 }
 
+.textarea::placeholder {
+    color: var(--gray-color);
+}
+
 .button {
     display: block;
     padding: 16px 60px;
-    background-color: #e44848;
+    background-color: var(--button-color);
     border-radius: 200px;
-    color: #fff;
+    color: var(--main-background-color);
     font-size: 16px;
     font-weight: 500;
-    line-height: 24px;
+    line-height: 1.5;
     margin: 24px auto 0;
     border: none;
     cursor: pointer;
@@ -99,5 +98,5 @@
 }
 
 .button:hover {
-    background-color: #d84343;
+    background-color: var(--button-hover-color);
 }

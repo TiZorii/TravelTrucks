@@ -46,7 +46,7 @@ export default function DetailsPage () {
       <div className={css.camperHeader}>
         <h2 className={css.camperName}>{camper.name}</h2>
         <div className={css.ratingLocation}>
-          <div className={css.ratingWrapper}>
+          <div className={css.ratingWrapper} onClick={() => setActiveTab("reviews")}>
             <svg width={16} height={16} fill="var(--rating-color)" ><use href={`${sprite}#icon-star`} /></svg>
             <span>
               {camper.rating} ({camper.reviews?.length || 0} Reviews)
@@ -83,13 +83,7 @@ export default function DetailsPage () {
       </div>
 
       <div className={css.detailsContent}>
-        <div
-          className={
-            activeTab === "features"
-              ? css.featuresContent
-              : css.reviewsConten
-          }
-        >
+        <div>
           {activeTab === "features" && <Features camper={camper} />}
           {activeTab === "reviews" && <Reviews reviews={camper.reviews} />}
         </div>

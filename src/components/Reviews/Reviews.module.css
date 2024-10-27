@@ -17,10 +17,9 @@
   justify-content: center;
   width: 60px;
   height: 60px;
-  background-color: #f2f4f7;
-  color: var(--accent);
+  background-color: var(--badges-color);
+  color: var(--button-color);
   border-radius: 60px;
-
   font-size: 24px;
   font-weight: 600;
   line-height: 1.33;
@@ -34,7 +33,7 @@
 
 .reviewerName {
   font-weight: 600;
-  color: #333;
+  color: var(--main-color);
 }
 
 .starsWrapper {
@@ -44,6 +43,6 @@
 
 .reviewComment {
   margin-top: 16px;
-  color: #475467;
+  color: var(--text-color);
   line-height: 1.5;
 }
