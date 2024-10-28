@@ -16,14 +16,14 @@ export default function Reviews ({ reviews }) {
       if (i <= filledStars) {
         starsArray.push(
           <svg key={i} width={16} height={16} fill="var(--rating-color)"> 
-              <use href={`${sprite}#icon-star`} />
-            </svg>
+            <use href={`${sprite}#icon-star`} />
+          </svg>
         );
       } else {
         starsArray.push(
           <svg key={i} width={16} height={16} fill="var(--badges-color)"> 
-              <use href={`${sprite}#icon-star`} />
-            </svg>
+            <use href={`${sprite}#icon-star`} />
+          </svg>
         );
       }
     }
@@ -36,7 +36,9 @@ export default function Reviews ({ reviews }) {
       {reviews.map((review, index) => (
         <div key={index}>
           <div className={css.reviewHeader}>
-            <div className={css.avatar}>{getInitial(review.reviewer_name)}</div>
+            <div className={css.avatar}>
+              {getInitial(review.reviewer_name)}
+            </div>
             <div className={css.reviewerInfo}>
               <span className={css.reviewerName}>{review.reviewer_name}</span>
               <div className={css.starsWrapper}>

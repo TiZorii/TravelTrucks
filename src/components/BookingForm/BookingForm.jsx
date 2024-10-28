@@ -51,6 +51,7 @@ export default function BookingForm () {
                 placeholder="Name*"
                 {...register("name", { required: "Name is required" })}
                 className={css.input}
+                autoComplete="name" 
             />
             {errors.name && <p className={css.error}>{errors.name.message}</p>}
 
@@ -62,9 +63,10 @@ export default function BookingForm () {
                     pattern: {
                         value: /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
                         message: "Invalid email format"
-        }
-    })}
-   className={css.input}
+                    }
+                })}
+                className={css.input}
+                autoComplete="email" 
             />
             {errors.email && <p className={css.error}>{errors.email.message}</p>}
 

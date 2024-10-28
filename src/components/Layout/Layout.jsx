@@ -7,7 +7,7 @@ import { Outlet } from "react-router-dom";
 
 
 const navLink =({isActive}) => {
-    return clsx(css.link, isActive && css.active)
+  return clsx(css.link, isActive && css.active)
 }
 
 export default function Layout() {
@@ -15,18 +15,12 @@ export default function Layout() {
     <div className={css.container}>
       <div className={css.header}>
         <nav className={css.nav}>
-                <NavLink to="/" className={navLink}><img className={css.logo} src="/images/Logo.svg" alt="logo" /></NavLink>
-                <NavLink to="/" className={navLink}>Home</NavLink>
-          <NavLink
-            to="/catalog"
-            className={({ isActive}) => {
-              return isActive && window.location.pathname === "/catalog"
-                ? css.active 
-                : css.link;
-            }}
-          >Catalog</NavLink>
+          <NavLink to="/" className={navLink}><img className={css.logo} src="/images/Logo.svg" alt="logo" /></NavLink>
+          <NavLink to="/" className={navLink}>Home</NavLink>
+          <NavLink to="/catalog" className={({ isActive}) => {
+            return isActive && window.location.pathname === "/catalog" ? css.active : css.link; }}>Catalog</NavLink>
         </nav>
-        </div>
+      </div>
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>

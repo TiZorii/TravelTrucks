@@ -4,12 +4,7 @@ import { categories, vehicleTypes } from "../../data/vehicleData";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import sprite from "/images/sprite.svg"
 
-export default function SearchForm ({
-  filters,
-  setFilters,
-  onFilterChange,
-  onSearchClick,
-}) {
+export default function SearchForm ({ filters, setFilters, onFilterChange, onSearchClick }) {
   const [localFilters, setLocalFilters] = useState(filters);
 
   const defaultFilters = ["AC", "transmission", "kitchen", "TV", "bathroom"];
@@ -18,14 +13,12 @@ export default function SearchForm ({
     (categoryName) => {
       let newFilters = { ...localFilters };
       if (categoryName === "transmission") {
-        newFilters[categoryName] =
-          localFilters[categoryName] === "automatic" ? null : "automatic";
+        newFilters[categoryName] = localFilters[categoryName] === "automatic" ? null : "automatic";
       } else {
         newFilters[categoryName] = !localFilters[categoryName];
       }
       setLocalFilters(newFilters);
-    },
-    [localFilters]
+    }, [localFilters]
   );
 
   const handleVehicleTypeClick = useCallback(
@@ -34,18 +27,13 @@ export default function SearchForm ({
       newFilters.form =
         newFilters.form === vehicleTypeName ? null : vehicleTypeName;
       setLocalFilters(newFilters);
-    },
-    [localFilters]
+    }, [localFilters]
   );
 
   const handleSearchClick = async (values, { setSubmitting }) => {
     const trimmedLocation = values.location.trim();
-    
-    const updatedFilters = { 
-      ...localFilters, 
-      location: trimmedLocation 
-    };
-    
+    const updatedFilters = { ...localFilters, location: trimmedLocation };
+
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     setFilters(updatedFilters);
@@ -55,37 +43,22 @@ export default function SearchForm ({
   };
 
   return (
-    <Formik
-      initialValues={{
-        location: localFilters.location || "",
-      }}
-      onSubmit={handleSearchClick}
-    >
+    <Formik initialValues={{ location: localFilters.location || "" }} onSubmit={handleSearchClick}>
       {({ isValid, isSubmitting }) => (
         <Form className={css.wrapper}>
           <div className={css.inputContainer}>
             <label className={css.inputLabel}>Location</label>
             <div className={css.inputField}>
               <svg width={20} height={20}><use href={`${sprite}#icon-map`} /></svg>
-              <Field
-                name="location"
-                type="text"
-                placeholder="City"
-                className={css.input}
-              />
+              <Field name="location" type="text" placeholder="City" className={css.input}/>
             </div>
-            <ErrorMessage
-              name="location"
-              component="div"
-              className={css.errorMessage}
-            />
+            <ErrorMessage name="location" component="div" className={css.errorMessage}/>
           </div>
 
           <div className={css.categoryWrapper}>
             <label className={css.inputLabel}>Filters</label>
             <h3 className={css.sectionTitle}>Vehicle equipment</h3>
             <hr className={css.hr} />
-
             <div className={css.categoryContainer}>
               {categories
                 .filter((category) => defaultFilters.includes(category.name))
@@ -107,7 +80,6 @@ export default function SearchForm ({
           <div className={css.categoryWrapper}>
             <h3 className={css.sectionTitle}>Vehicle type</h3>
             <hr className={css.hr} />
-
             <div className={css.categoryContainer}>
               {vehicleTypes.map((type) => (
                 <div

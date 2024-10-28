@@ -13,7 +13,7 @@ export default function Loader () {
       visible={true}
       ariaLabel="oval-loading"
       secondaryColor="var(--button-color)"
-    />
+      />
     </div>
   );
 };
