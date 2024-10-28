@@ -40,3 +40,8 @@
     margin-bottom: 8px;
     margin-left: 16px;
 }
+
+.fav {
+    position: absolute;
+    right: 88px;
+}

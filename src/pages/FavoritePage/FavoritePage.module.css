@@ -1,0 +1,49 @@
+.catalogPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.catalogContainer {
+  width: 888px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 48px;
+  gap: 32px;
+}
+
+.vehicleCard {
+  margin-top: 32px;
+}
+
+.emptyMessage {
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--main-color);
+}
+
+.loadMoreBtn {
+  display: inline-flex;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 200px;
+  background-color: transparent;
+  border: 1px solid var(--gray-light-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.08px;
+  margin-top: 8px;
+}
+
+.loadMoreBtn:hover {
+  border: 1px solid var(--button-hover-color);
+}
