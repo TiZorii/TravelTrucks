@@ -49,7 +49,7 @@ export default function DetailsPage() {
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
-    if (tab === "reviews") {
+    if (tab === "reviews" && reviewsRef.current) {
       scroll.scrollTo(reviewsRef.current.offsetTop, {
         duration: 1500,
         smooth: "smooth",
@@ -100,7 +100,7 @@ export default function DetailsPage() {
         </button>
         <button
           className={activeTab === "reviews" ? css.activeTab : ""}
-          onClick={() => handleTabClick("reviews")}
+          onClick={() => setActiveTab("reviews")}
         >
           Reviews
         </button>
@@ -122,5 +122,4 @@ export default function DetailsPage() {
       </div>
     </div>
   );
-};
-
+}

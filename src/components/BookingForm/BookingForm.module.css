@@ -8,14 +8,16 @@
     color: var(--main-color);
     font-size: 20px;
     font-weight: 600;
-    line-height: 24px;
+    line-height: 1.2;
     margin-bottom: 8px;
 }
 
 .text {
     color: var(--text-color);
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1.5;
+    font-style: normal;
+    font-weight: 400;
     margin-bottom: 10px;
 }
 
@@ -73,6 +75,7 @@
     font-size: 16px;
     margin-top: 14px;
     padding: 18px;
+    height: 118px;
     width: 100%;
     max-width: 527px;
     resize: none;
