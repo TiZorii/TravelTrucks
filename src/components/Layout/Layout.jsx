@@ -21,7 +21,7 @@ export default function Layout() {
             <img className={css.logo} src="/images/Logo.svg" alt="logo" />
           </NavLink>
           <NavLink to="/" className={navLinkClass}>Home</NavLink>
-          <NavLink to="/catalog" className={navLinkClass}>Catalog</NavLink>
+          <NavLink to="/catalog" className={navLinkClass} end>Catalog</NavLink>
           
           {favorites.length > 0 && (
             <NavLink to="/favorite" className={css.fav}>
