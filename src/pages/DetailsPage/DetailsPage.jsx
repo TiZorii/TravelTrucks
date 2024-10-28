@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCamperDetails } from "../../redux/campers/operations";
@@ -10,6 +10,7 @@ import Location from "../../components/Location/Location";
 import sprite from "/images/sprite.svg";
 import css from "./DetailsPage.module.css";
 import Loader from "../../components/Loader/Loader";
+import { animateScroll as scroll } from "react-scroll";
 
 const Gallery = ({ images }) => {
   return (
@@ -32,6 +33,7 @@ export default function DetailsPage() {
   const camper = useSelector(selectCamperDetails);
   const status = useSelector(selectCamperDetailsStatus);
   const [activeTab, setActiveTab] = useState("features");
+  const reviewsRef = useRef(null);
 
   useEffect(() => {
     dispatch(getCamperDetails(id));
@@ -47,6 +49,12 @@ export default function DetailsPage() {
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
+    if (tab === "reviews") {
+      scroll.scrollTo(reviewsRef.current.offsetTop, {
+        duration: 1500,
+        smooth: "smooth",
+      });
+    }
   };
 
   if (status === "loading") {
@@ -101,7 +109,11 @@ export default function DetailsPage() {
       <div className={css.detailsContent}>
         <div>
           {activeTab === "features" && <Features camper={camper} />}
-          {activeTab === "reviews" && <Reviews reviews={camper.reviews} />}
+          {activeTab === "reviews" && (
+            <div ref={reviewsRef}>
+              <Reviews reviews={camper.reviews} />
+            </div>
+          )}
         </div>
 
         <div className={css.bookingFormWrapper}>
@@ -111,3 +123,4 @@ export default function DetailsPage() {
     </div>
   );
 };
+

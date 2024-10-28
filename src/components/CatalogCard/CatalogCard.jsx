@@ -91,7 +91,7 @@ export default function CatalogCard({ camper }) {
                     ))}
                 </div>
     
-                <Button text="Show More" navigateTo={`/catalog/${camper.id}`} />
+                <Button text="Show more" navigateTo={`/catalog/${camper.id}`} />
             </div>
         </div>
     );

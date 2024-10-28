@@ -7,8 +7,9 @@ import VehicleCard from "../../components/CatalogCard/CatalogCard";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import css from "./CatalogPage.module.css";
 import toast, { Toaster } from "react-hot-toast";
+import { animateScroll as scroll } from "react-scroll"; 
 
-export default function Catalog () {
+export default function Catalog() {
   const dispatch = useDispatch();
   const campers = useSelector(selectCampers);
   const filters = useSelector(selectFilters);
@@ -35,19 +36,23 @@ export default function Catalog () {
     setVisibleCount(4);
     dispatch(getCampers(filters));
   }, [dispatch, filters]);
-  
+    
   const handleFilterChange = (newFilters) => {
     dispatch(setFilters(newFilters));
   };
 
   const handleLoadMore = () => {
     setVisibleCount((prevCount) => prevCount + 4);
+
+    scroll.scrollMore(600, {
+      duration: 800,
+      smooth: "smooth",
+    });
   };
 
   return (
     <div className={css.catalogPage}>
       <Toaster position="top-right" reverseOrder={false} />
-
       <div>
         <SearchForm
           filters={filters}
@@ -65,10 +70,10 @@ export default function Catalog () {
 
         {visibleCount < campers.length && (
           <button className={css.loadMoreBtn} onClick={handleLoadMore}>
-            Load More
+            Load more
           </button>
         )}
       </div>
     </div>
   );
-};
+}
