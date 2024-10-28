@@ -1,4 +1,4 @@
-##TravelTrucks
+# TravelTrucks
 
 A project designed to find campers for travel.
 
@@ -13,21 +13,23 @@ Before starting the project, make sure that the following are installed on your 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-project.git
+   git clone https://github.com/TiZorii/TravelTrucks.git
    ```
    Navigate to the project directory:
-
-cd TravelTrucker
-Install dependencies:
-
-Using npm:
-npm install
+   ```bash
+   cd TravelTrucker
+   ```
+   Install dependencies using npm:
+   ```bash
+   npm install
+   ```
 
 2. Starting the Project
 
-To start the local development server:
+   To start the local development server using npm:
+   ```bash
+   npm run dev
+   ```
 
-Using npm:
-npm run dev
-
-Once the server starts, you can open your project in the browser at http://localhost:5173.
+Once the server starts, you can open your project in the browser at 
+http://localhost:5173.
